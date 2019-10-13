@@ -14,21 +14,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-load="$(cut -d ' ' -f1 /proc/loadavg)"
-cpus="$(nproc)"
+load="$(printf '%03d'  $[100-$(vmstat 1 2|tail -1|awk '{print $15}')])"
 
 # full text
 echo "$load%"
 
 # short text
 echo "$load%"
-
-# color if load is too high
-awk -v cpus=$cpus -v cpuload=$load '
-    BEGIN {
-        if (cpus <= cpuload) {
-            print "#FF0000";
-            exit 33;
-        }
-    }
-'
