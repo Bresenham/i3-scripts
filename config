@@ -176,6 +176,15 @@ bar {
 
 bindsym $mod+l exec i3lock -c f09d29
 
+exec_always "xrdb /home/test/.Xresources"
+
 exec_always "setxkbmap -layout de"
 
 exec_always "feh --bg-scale ~/Pictures/wallhaven-d5282o.png"
+
+floating_maximum_size 800 x 600
+
+floating_minimum_size 75 x 50
+
+for_window [tiling] move position 640 400
+

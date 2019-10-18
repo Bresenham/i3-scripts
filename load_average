@@ -21,3 +21,16 @@ echo "$load%"
 
 # short text
 echo "$load%"
+
+if [ "$load" -gt "85" ];
+then
+	echo "#FF0000"
+elif [ "$load" -gt "70" ];
+then
+	echo "#FFAE00"
+elif [ "$load" -gt "60" ];
+then
+	echo "#FFF600"
+else
+	echo "#00FF00"
+fi
