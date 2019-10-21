@@ -186,5 +186,19 @@ floating_maximum_size 800 x 600
 
 floating_minimum_size 75 x 50
 
-for_window [tiling] move position 640 400
+exec "pasystray"
 
+##
+# move floating windows with keys
+bindsym $mod+m mode "move" focus floating
+mode "move" {
+    bindsym $mod+Tab focus right
+
+    bindsym Left  move left
+    bindsym Down  move down
+    bindsym Up    move up
+    bindsym Right move right
+
+    # back to normal: Enter or Escape
+    bindsym Escape mode "default"
+}
